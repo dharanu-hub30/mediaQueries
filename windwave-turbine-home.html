@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WindWave – CSS Media Queries Breakpoints</title>
+  <meta name="description" content="WindWave: harnessing wind energy for smart cities, with a responsive layout built using CSS media queries." />
+  <link rel="stylesheet" href="windwave-turbine-styles.css" />
+</head>
+<body>
+
+  <header class="mq-header">
+    <a class="mq-logo" href="#top">Wind<span>Wave</span></a>
+    <nav class="mq-nav" aria-label="Main navigation">
+      <a href="#breakpoints">Breakpoints</a>
+      <a href="#demo">Live demo</a>
+      <a href="#features">Smart city features</a>
+      <a href="#code">Code</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="mq-hero">
+      <p class="mq-eyebrow">CSS media queries · Responsive design</p>
+      <h1>WindWave: smart-city wind energy on every screen</h1>
+      <p class="mq-lead">
+        Resize your browser window and watch the layout adapt. Media queries apply different
+        styles depending on screen width, height, orientation and resolution.
+      </p>
+      <div class="mq-badge" id="mqBadge" aria-live="polite">
+        <span id="mqWidth">0</span>px · <strong id="mqName">Desktop</strong>
+      </div>
+    </section>
+
+    <section id="breakpoints" class="mq-section">
+      <h2>Breakpoints used in this project</h2>
+      <p class="mq-sub">One layout, three breakpoints.</p>
+      <img class="mq-diagram" src="windwave-turbine-breakpoints.svg" alt="Diagram of CSS media query breakpoints for desktop, tablet and mobile" />
+      <div class="mq-table-wrap">
+        <table class="mq-table">
+          <thead><tr><th>Device</th><th>Media query</th><th>Feature columns</th></tr></thead>
+          <tbody>
+            <tr><td>Desktop</td><td><code>min-width: 992px</code></td><td>3</td></tr>
+            <tr><td>Tablet</td><td><code>max-width: 991px</code></td><td>2</td></tr>
+            <tr><td>Mobile</td><td><code>max-width: 600px</code></td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="demo" class="mq-section">
+      <h2>Live demo: wind output cards</h2>
+      <p class="mq-sub">The grid below changes from 3 to 2 to 1 columns as the screen shrinks.</p>
+      <div class="mq-grid">
+        <article class="mq-card"><h3>Rooftop turbines</h3><p>Compact turbines on buildings generate power where it is used.</p></article>
+        <article class="mq-card"><h3>Vertical-axis units</h3><p>Handle gusty, changing urban wind from any direction.</p></article>
+        <article class="mq-card"><h3>Smart grid sensors</h3><p>Track wind speed and output in real time.</p></article>
+        <article class="mq-card"><h3>Energy storage</h3><p>Batteries hold surplus wind power for calm hours.</p></article>
+        <article class="mq-card"><h3>EV charging</h3><p>Wind-powered chargers cut transport emissions.</p></article>
+        <article class="mq-card"><h3>Street lighting</h3><p>Self-powered lights that dim and brighten with demand.</p></article>
+      </div>
+    </section>
+
+    <section id="features" class="mq-section">
+      <h2>Other media query features</h2>
+      <ul class="mq-list">
+        <li><strong>Orientation</strong> – <span class="mq-orient" id="mqOrient">landscape</span> (try rotating your phone).</li>
+        <li><strong>Resolution</strong> – high-DPI screens can load sharper graphics with <code>min-resolution</code>.</li>
+        <li><strong>Dark mode</strong> – <code>prefers-color-scheme: dark</code> switches this page to a dark theme.</li>
+        <li><strong>Print</strong> – <code>@media print</code> hides the header and background colours.</li>
+      </ul>
+    </section>
+
+    <section id="code" class="mq-section">
+      <h2>Core code</h2>
+      <pre class="mq-pre"><code>.mq-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+@media only screen and (max-width: 991px) {
+  .mq-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media only screen and (max-width: 600px) {
+  .mq-grid { grid-template-columns: 1fr; }
+}</code></pre>
+    </section>
+  </main>
+
+  <footer class="mq-footer">
+    <p>WindWave · Practicum project · CSS media queries breakpoints</p>
+  </footer>
+
+  <script src="windwave-turbine-live.js"></script>
+</body>
+</html>
